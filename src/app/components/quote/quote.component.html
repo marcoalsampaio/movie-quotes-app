@@ -1,0 +1,20 @@
+<section class="main">
+  <section>
+    <!-- /* Quote and date */ -->
+    <h2 *ngIf="errorMsg; else elseBlock" class="error">
+      Something went wrong, try again later!
+    </h2>
+    <ng-template #elseBlock>
+      <h2 class="quote">
+        <cite>{{ quote?.quote }}</cite> - {{ quote?.role }}
+      </h2>
+      <h5>Show: {{ quote?.show }}</h5>
+      <p class="date">Last quote date: {{date}}</p>
+    </ng-template>
+  </section>
+  <section>
+    <!-- /* Buttons */ -->
+    <button class="btn" (click)="fetchQuote()">New Quote</button>
+    <button class="btn">Quote List</button>
+  </section>
+</section>

@@ -1,0 +1,30 @@
+.main {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+.date {
+    color: gray;
+    font-size: x-small;
+}
+
+.btn {
+    border: 2px solid #0d6efd;
+    border-radius: 5px;
+    background-color: white;
+    margin: 10px;
+    height: 30px;
+}
+
+.btn:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+.btn:active{
+    background-color: #1d77ff;
+}
