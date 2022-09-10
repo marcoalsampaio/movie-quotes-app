@@ -1,0 +1,44 @@
+.topBtns{
+    width: 50%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    
+}
+
+.btn:first-child{
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn:last-child{
+    margin-left: auto;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.searchBar {
+    border: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 20px;
+    width: 100%;
+}
+
+h5 {
+    margin-top: 20px;
+}
+
+li {
+    list-style: none;
+}
+h6{
+    margin: 0px;
+}
+p{
+    display: inline;
+    font-size: xx-small;
+    margin: 0px;
+}

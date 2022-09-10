@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { QuoteDate } from './quote';
+
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,4 @@ import { QuoteDate } from './quote';
 export class AppComponent {
   title = 'movie-quotes-app';
 
-  quotes: QuoteDate[] = [];
-
-  setQuote(quote: QuoteDate): void {
-    this.quotes.push(quote);
-  }
 }
