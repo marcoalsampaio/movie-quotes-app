@@ -16,7 +16,6 @@
     margin: 10px;
     height: 30px;
     width: fit-content;
-
 }
 
 .btn:hover {
@@ -26,3 +25,5 @@
 .btn:active{
     background-color: #1d77ff;
 }
+
+

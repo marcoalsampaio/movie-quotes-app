@@ -55,3 +55,22 @@ p{
     font-size: xx-small;
     margin-right: 30px;
 }
+
+@media only screen and (max-width: 440px) {
+    .topBtns{
+        grid-template-columns: 100%;
+    }
+    .btn{
+        width:100%;
+    }
+}
+
+@media only screen and (max-width: 230px) {
+    .topBtns{
+        grid-template-columns: 100%;
+    }
+    .btn{
+        width:100%;
+        height: 45px;
+    }
+}
