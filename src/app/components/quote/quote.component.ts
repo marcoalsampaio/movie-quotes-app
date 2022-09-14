@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { debounceTime, distinctUntilChanged, Observable, of } from 'rxjs';
 import { Quote, QuoteDate } from 'src/app/quote';
 import { HttpService } from 'src/app/services/http.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -19,21 +20,21 @@ export class QuoteComponent implements OnInit {
     this.fetchQuote();
   }
 
+
   fetchQuote(): void { //fetch a new Quotes 
 
     this.date = this.storage.get("date"); //Get the last date quote
     this.errorMsg = false;
-    let date = new Date().toLocaleString("en-GB") //formating the date YYYY/MM/DD, HH:MM:SS
+    const date = new Date().toLocaleString("en-GB") //formating the date YYYY/MM/DD, HH:MM:SS
     this.http.getMovieQuote().subscribe( 
       {
         next: (q) => {
           this.quote = q; //Set the var Quote equal to the return quote
           this.storage.set("date", date); //set the date of the call
-          this.addQuote(date, this.quote); 
+          this.addQuote(date, q); 
         },
         error: (err) => this.errorMsg = true //verify is there is an error
       });
-
   };
 
   addQuote( d: string, q?: Quote): void { 

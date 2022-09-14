@@ -10,7 +10,6 @@ export class QuoteListComponent implements OnInit {
   quotes: QuoteDate[] = []; //Quotes array
   loading: boolean = false; 
   searchQuotes: QuoteDate[] = [];
-
   constructor(private storage: StorageService) {}
 
   ngOnInit(): void {
@@ -18,8 +17,8 @@ export class QuoteListComponent implements OnInit {
   }
 
   showQuotes(): void {
-    let storageQuotes: QuoteDate[] = this.storage.get('quotes'); //Get the quotes from the local storage
-    let sessionQuotes = this.storage.getQuotes(); //Get the session quotes
+    const storageQuotes: QuoteDate[] = this.storage.get('quotes'); //Get the quotes from the local storage
+    const sessionQuotes = this.storage.getQuotes(); //Get the session quotes
 
     if (this.verifyQuotes(storageQuotes)) { //verify if the local storage returned some quotes
       this.quotes = [...storageQuotes]; //save the quotes in the quotes Array
@@ -43,7 +42,8 @@ export class QuoteListComponent implements OnInit {
   }
 
   search(text: string): void { //Search the quotes that containt the inputed string
-    this.quotes = this.searchQuotes;
-    this.quotes = this.quotes.filter((q) => q.quoteData?.quote.includes(text));
+    setTimeout(() => {
+    this.quotes = this.searchQuotes.filter((q) => q.quoteData?.quote.includes(text));
+    }, 300)
   }
 }

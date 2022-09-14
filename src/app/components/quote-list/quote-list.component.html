@@ -1,30 +1,38 @@
-<div>
-  <div class="topBtns">
-    <button class="btn" routerLink="/quote">Homepage</button> <!-- Homepage button, could be a go Back -->
-    <button class="btn" (click)="persist()">Persist Quotes</button> <!-- Persiste button -->
-  </div>
-  <div class="main">
-    <div>
+<section>
+  <section class="topBtns">
+    <button class="btn" routerLink="/quote">Homepage</button>
+    <!-- Homepage button, could be a go Back -->
+    <button class="btn" (click)="persist()">Persist Quotes</button>
+    <!-- Persiste button -->
+  </section>
+  <section class="main">
+    <section>
       <input
         #searchInput
         class="searchBar"
         type="text"
         placeholder="Search"
-        (input)="search(searchInput.value)" 
-      /> <!-- Input to send the information to be searched -->
-    </div>
-    <div *ngIf="loading; else elseBlock">
+        (input)="search(searchInput.value)"
+      />
+      <!-- Input to send the information to be searched -->
+    </section>
+    <!-- <section *ngIf="loading; else elseBlock"> -->
       <ul>
-        <li *ngFor="let quote of this.quotes">
+      <cdk-virtual-scroll-viewport  itemSize="9">
+        <ng-container *cdkVirtualFor="let quote of quotes">
+          <li>
           <h6 class="quote">
             <cite>{{ quote.quoteData?.quote }}</cite> -
             {{ quote.quoteData?.role }}
           </h6>
           <p>Show: {{ quote.quoteData?.show }}</p>
           <p>Last quote date: {{ quote.created_date }}</p>
-        </li>
-      </ul>
-    </div>
-    <ng-template #elseBlock> <h5>No movie quotes...</h5></ng-template> <!-- Else Block, shows if there is no movie quotes to be loaded-->
-  </div>
-</div>
+          </li>
+        </ng-container>
+      </cdk-virtual-scroll-viewport>
+    </ul>
+    <!-- </section> -->
+    <!-- <ng-template #elseBlock> <h5>No movie quotes...</h5></ng-template> -->
+    <!-- Else Block, shows if there is no movie quotes to be loaded-->
+  </section>
+</section>
