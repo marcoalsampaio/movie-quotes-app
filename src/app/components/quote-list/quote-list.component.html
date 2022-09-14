@@ -16,7 +16,7 @@
       />
       <!-- Input to send the information to be searched -->
     </section>
-    <!-- <section *ngIf="loading; else elseBlock"> -->
+    <section *ngIf="loading; else elseBlock">
       <ul>
       <cdk-virtual-scroll-viewport  itemSize="9">
         <ng-container *cdkVirtualFor="let quote of quotes">
@@ -31,8 +31,8 @@
         </ng-container>
       </cdk-virtual-scroll-viewport>
     </ul>
-    <!-- </section> -->
-    <!-- <ng-template #elseBlock> <h5>No movie quotes...</h5></ng-template> -->
+    </section>
+    <ng-template #elseBlock> <h5>No movie quotes...</h5></ng-template>
     <!-- Else Block, shows if there is no movie quotes to be loaded-->
   </section>
 </section>
